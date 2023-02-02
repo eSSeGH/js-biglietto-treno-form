@@ -13,35 +13,30 @@
 
     <main>
 
-        <section class="form">
+        <section class="form pt-5">
 
             <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
 
             <div class="container">
 
-                <div class="card">
-
-                    <form>
+                <div class="card p-4">
                    
-                        <div class="input-group mb-3">
-                            <input id="passenger-name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
+                    <div class="input-group mb-3">
+                        <input id="passenger-name" type="text" class="form-control" placeholder="Nome e Cognome" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
-                        <div class="input-group mb-3">
-                            <input id="km" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
+                    <div class="input-group mb-3">
+                        <input id="km" type="text" class="form-control" placeholder="Km da percorrere" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
-                        <select id="age" class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Età</option>
-                            <option value="underage">Underage</option>
-                            <option value="adult">Adult</option>
-                            <option value="over65">Over65</option>
-                        </select>
-                     
-                        <button id="calc-btn" class="btn btn-primary">Calcola</button>
-
-                      </form>
+                    <select id="age" class="form-select mb-3" aria-label="Default select example">
+                        <option selected>Età</option>
+                        <option value="underage">Underage</option>
+                        <option value="adult">Adult</option>
+                        <option value="over65">Over65</option>
+                    </select>
                     
+                    <button type="button" id="calc-btn" class="btn bg-primary">Calcola</button>   
 
                 </div>
 
@@ -50,16 +45,16 @@
         </section>
 
         
-        <section class="ticket">
+        <section class="ticket py-5">
 
             <h1>IL TUO BIGLIETTO</h1>
 
             <div class="container">
 
-                <div class="card">
+                <div class="card p-4">
 
                     <h2>NOME PASSEGGERO</h2>
-                    <span id="passenger-name-value"></span>
+                    <span id="passenger-name-value">-</span>
 
                     <table class="table">
 
@@ -73,10 +68,10 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td id="offer-value"></td>
-                            <td id="Carrozza-value"></td>
-                            <td id="CP-code-value"></td>
-                            <td id="price-value"></td>
+                            <td id="offerta">-</td>
+                            <td id="carrozza">-</td>
+                            <td id="cp">-</td>
+                            <td id="prezzo-finale">-</td>
                           </tr>
                         </tbody>
 

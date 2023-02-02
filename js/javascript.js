@@ -1,45 +1,75 @@
-// inserire in un input nome e il numero di km da percorrere
 
-const passengerName = document.getElementById("passenger-name")
+console.log("ciao")
 
-const km = document.getElementById("km")
+const PREZZO_AL_KM = 0.21
 
-// selezionare da una select il tipo di sconto da applicare 
-// (3 scelte: sconto minorenne, sconto over 65, nessuno sconto)
+// al click sul pulsante calcola, calcolare il prezzo del niglietto
 
-const age = document.getElementById("age")
+let prezzoFinaleElement = document.getElementById("prezzo-finale")
+let carrozzaElement = document.getElementById("carrozza")
+let cpElement = document.getElementById("cp")
+let offertaElement = document.getElementById("offerta")
 
-
-// Al click sul pulsante calcolare il prezzo del biglietto:
-// il prezzo del biglietto è definito in base ai km (0.21 € al km)
-// va applicato uno sconto del 20% per i minorenni
-// va applicato uno sconto del 40% per gli over 65.
-
-let price = 0
 
 const calcBtn = document.getElementById("calc-btn")
+console.log(calcBtn)
 
 calcBtn.addEventListener("click", function () {
 
-    let kmValue = document.getElementById("km").value
-    console.log(km)
+    let km = document.getElementById("km").value
+    
 
-    let ageValue = document.getElementById("age").value
-    console.log(ageValue)
+    let sconto = 0 
+    let prezzoBase = km * PREZZO_AL_KM
 
-    switch (ageValue) {
+    prezzoBase = parseFloat(prezzoBase)
+
+    let age = document.getElementById("age").value
+
+    switch (age) {
 
         case "underage":
-            price = (kmValue * 0.21 * 0.8)
+            sconto = (prezzoBase*20/100)
             break
         
         case "adult":
-            price = (kmValue * 0.21)
+            sconto = 0
             break
 
         case "over65":
-            price = (kmValue * 0.21 * 0.6) 
+            sconto = (prezzoBase*40/100)
     }
+
+    // dichiaro la var prezzoFinale
+    let prezzoFinale = prezzoBase - sconto
+    prezzoFinale = prezzoFinale.toFixed(2)
+
+    // la stampo nel biglietto
+    prezzoFinaleElement.innerHTML = (prezzoFinale + "€")
+
+    // stampo nel biglietto l'offerta
+    offertaElement.innerHTML = age
+
+    // genero un numero random per la carrozza 1-10
+    const carrozza = Math.floor(Math.random() * (10 - 1 + 1) + 1)
+    console.log(carrozza)
+
+    //   lo stmapo
+    carrozzaElement.innerHTML = carrozza
+
+    // genero un numero random per la carrozza 1-10
+    const cp = Math.floor(Math.random() * (99999 - 10000 + 1) + 10000)
+    console.log(cp)
+
+    //   lo stmapo
+    cpElement.innerHTML = cp
+
+    // recupero nome passeggero e lo stampo
+    const name = document.getElementById("passenger-name").value
+    
+    const NameElement = document.getElementById("passenger-name-value")
+
+    NameElement.innerHTML = name
 })
 
-console.log(price)
+
